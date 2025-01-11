@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--scout we program-->
+
+<html>
+    <head>
+            <meta charset='UTF-8'>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../tools/designs.css">
+    <script src="../tools/index.js"></script>
+    <!-- react depenciaries-->
+    <script src='https://unpkg.com/react@16.3.1/umd/react.production.min.js'></script>
+    <script src='https://unpkg.com/react-dom@16.3.1/umd/react-dom.production.min.js'></script>
+    <!--script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script-->
+    <script src='https://unpkg.com/babel-standalone@6.26.0/babel.js'></script
+    </head>
+    <body>
+        <div><h2>HELLO WELCOME<h2>
+            <p>lets train!</p>
+        </h2></div>
+        <section  style =  " color:"red" " >This page is still undergoing technical development, so, it won't achieve desired goals,but we will solve it soon thanks</section>
+        
+               <img src="pic.png" />
+        
+        <form>
+            <p><label for="Username"><span  >USERNAME</span></label>
+            <input type="text"  /> </p> <p>
+            <label for="password"><span  >PASSWORD</span></label>
+            <input type ="password" />
+            </p>
+            <button>Register</button>
+        </form>
+        <footer>
+            
+             <div >
+                <h4>
+                    scouts' rule
+                </h4>
+                <P>DO MY BEST</P>
+            </div>
+            <div >
+                <h4>scouts promise</h4>
+                
+                 <p>promise to do my best;</p> <p>
+To do my duty to God and my Country;</p><p>
+To obey the  Scout Law, and;</p><p>
+To help other people at all times </p>
+                
+            </div>
+            <p ></p>
+            <p>powered by <a href="https://www.scoptechnologies.xyz">scop technologies </a></p>
+            
+            Thanks for joining the scouts club
+        <p>&copy; <span id="year"></span> Scouts We training program</p>
+    </footer>
+    
+           <script>
+           document.addEventListener("DOMContentLoaded", ()=>{
+                var year = document.getElementById("year");
+            var time = new Date;
+            year.innerHTML = time.getFullYear();
+               
+           })
+        
+           
+        </script>
+    </body>
+</html>
