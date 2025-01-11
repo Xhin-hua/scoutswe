@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--scout we program-->
+
+<html>
+    <head>
+            <meta charset='UTF-8'>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tools/designs.css">
+    <!--script src="../tools/index.js"></script-->
+    <script src="tools/store.js"></script>
+    <!-- react depenciaries-->
+    <script src='https://unpkg.com/react@16.3.1/umd/react.production.min.js'></script>
+    <script src='https://unpkg.com/react-dom@16.3.1/umd/react-dom.production.min.js'></script>
+    <script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script>
+    <script src='https://unpkg.com/babel-standalone@6.26.0/babel.js'></script
+    </head>
+    <body>
+        <div><h2>HELLO WELCOME<h2>
+            <p>SCOUT YOO,<sup> lets train!</sup></p>
+        </h2></div>
+        
+         <script type='text/babel'>
+      const Link = ReactRouterDOM.Link;
+      const Route = ReactRouterDOM.Route;
+     /*const [myBetList,addBet] = React.useState;*/
+      const App = () => (
+        <ReactRouterDOM.HashRouter>
+        <div className ="top-nav" >
+          <ul>
+            <li><Link to="/">Overview</Link></li>
+            <li><Link to="/stages">STAGES</Link></li>
+            
+              <li><Link to="/skills">SKILLS</Link></li>
+
+             <li><Link to="/songs">SONGS</Link></li>
+              <li><Link to="/games">GAMES</Link></li>
+
+            <li><Link to="/scoutUniform"> UNIFORM</Link></li>
+            
+            
+          </ul></div>
+
+          <Route path="/" exact component={Overview} />
+          <Route path="/stages" component={Stages} />
+          <Route path="/scoutUniform" component={ScoutUniform} />
+           <Route path="/songs" component={Songs} />
+            <Route path="/games" component={Games} />
+            <Route path="/skills" component={Skills} />
+          
+        </ReactRouterDOM.HashRouter>
+      )
+      
+      const Overview =()=>{ return (
+          <div>
+          <h2>The Scout Community</h2>
+          {Object.keys(overview).map((a,i) =>(
+          <div key = {1}>
+          { i == 0 ? <div><h2>{a}</h2><p>{overview[a]}</p></div> : (   i == 1 ? <div><h2>{a}</h2>
+                  <div> { Object.keys(overview[a]).map((b,j) => (
+                      <div key = {j} >
+                      <h3>{b}</h3>
+                      { b == "values" ? 
+                          <div>{ overview[a][b].map((c,k) => ( <ul key = {k}>
+                      <li>{c}</li>
+                      </ul>
+                      )
+                          )
+
+                         }</div> :  <p>{overview[a][b]}</p> }
+                      </div>
+                      ) )
+                    
+                  }</div>
+              </div> : <div><h2>{a}</h2>
+                {  overview[a].map((b,j) =>( <div key = {j} >
+                      { Object.keys(overview[a][j]).map((c,k) => <div key = {k} >
+                      { c == "title" ?    <h5>{overview[a][j][c]}</h5> :
+                      <p>{overview[a][j][c]}</p>
+                      
+                      }
+                      </div> )
+                          
+                      }
+                      
+                  </div>
+                      )
+                      )
+                  
+               }
+              
+              </div> )
+          
+          }
+          </div>
+          ) )
+          }
+          <div >
+          <h1> SCOUTING BRIEF HISTORY</h1>
+          
+              {Object.keys(briefHistory).map((a,i) => <div key ={i}><h5>{a}</h5> <p>{briefHistory[a]}</p> </div> )
+          }
+           </div>
+          ..</div>
+          ); }
+          
+          const Stages =()=>{ return (
+          <div>
+          
+          <h1>NYOTA 1</h1>
+              {Object.keys(nyota1).map((a,i) => <div key ={i} >
+              <h3>{a}</h3>
+              <p>{nyota1[a]}</p>
+              </div>)
+          }
+          
+             <h1>NYOTA 2</h1>
+              {Object.keys(nyota2).map((a,i) => <div key ={i} >
+              <h3>{a}</h3>
+              <p>{ nyota2[a].map((b,j) => <ull key={j} ><li>{b}</li></ull>) }</p>
+              </div>)
+          }
+          
+             <h1>NYOTA 3</h1>
+              {Object.keys(nyota3).map((a,i) => <div key ={i} >
+              <h3>{a}</h3>
+              <p>{ nyota3[a].map((b,j) => <ull key={j} ><li>{b}</li></ull>) }</p>
+              </div>)
+          }
+          
+          
+          </div>
+          );}
+          
+          
+          const ScoutUniform =()=>(
+          <div> 
+          <h2>THE SCOUT UNIFORM</h2>
+          
+               {Object.keys(scoutUniform).map((a,i) => <div key ={i} >
+              <h3>{a}</h3>
+              <p>{ scoutUniform[a].map((b,j) => <ull key={j} ><li>{b}</li></ull>) }</p>
+              </div>)
+          }
+              
+          
+          ...</div>
+          )
+          
+           const Songs =()=>{ return(
+          <div><h1>SONGS</h1>
+          {
+              Object.keys(songs).map((a,i) => <div key = {i} ><h3>{a}</h3> {
+                          Object.keys(songs[a]).map((b,j) => <div key={j} >
+                          <p>{songs[a][b]}</p>
+                          </div> )
+              } </div>)
+          }
+          
+          </div>
+          ); }
+          
+           const Games =()=>{ return(
+          <div><h1>SkILLS ONE CAN ATTAIN</h1> 
+               
+                {
+              Object.keys(games).map((a,i) => <div key = {i} ><h3>{a}</h3> {
+                          Object.keys(games[a]).map((b,j) => <div key={j} >
+                          <p>{games[a][b]}</p>
+                          </div> )
+              } </div>)
+          }
+               
+              
+          </div>
+          ); }
+          
+          const Skills = () => {
+              return(<div> <h1>GAMES</h1> 
+              <p><sup>This page is still under development... sorry for the inconvinience</sup></p>
+               {
+              Object.keys(skills).map((a,i) => <div key = {i} ><h3>{a}</h3> {
+                          Object.keys(skills[a]).map((b,j) => <div key={j} >
+                          {  b == "badge" ?  <p><button>BADGE:</button> {skills[a][b]} </p> : <p> <h5>{b}</h5> {skills[a][b].map((c,k) => <ul key = {k}><li>{c}</li>  </ul>  ) }</p>
+                              
+                          }
+                          </div> )
+              } </div>)
+          }
+              
+              </div> );
+          }
+          
+          
+
+    
+      ReactDOM.render(<App />, document.querySelector('#root'));
+    </script>
+    
+     <div id='root'></div>
+        
+        
+
+        <footer>
+            
+            
+             <div >
+                <h4>
+                    scouts' rule
+                </h4>
+                <P>DO MY BEST</P>
+            </div>
+            <div >
+                <h4>scouts promise</h4>
+                
+                 <p>promise to do my best;</p> <p>
+To do my duty to God and my Country;</p><p>
+To obey the  Scout Law, and;</p><p>
+To help other people at all times.</p>
+                
+            </div>
+            <p ></p>
+            <p>powered by <a href="https://www.scoptechnologies.xyz">scop technologies </a></p>
+                 <p> <a href="pages/registration_form.html">SIGN UP</a> to join the scouts club.</p>
+        <p>&copy; <span id="year"></span> Scouts We training program</p>
+    </footer>
+           <script>
+           document.addEventListener("DOMContentLoaded", ()=>{
+                var year = document.getElementById("year");
+            var time = new Date;
+            year.innerHTML = time.getFullYear();
+               
+           })
+        
+           
+        </script>
+    </body>
+</html>
+
+
